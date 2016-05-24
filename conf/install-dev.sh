@@ -101,7 +101,7 @@ sudo apt-get -y autoremove
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 opam conf -a env
 opam init
-opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml
+opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml merlin
 
 sudo apt-get -y install tuareg-mode
 
