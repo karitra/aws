@@ -8,6 +8,9 @@
 mkdir -p $HOME/bin
 mkdir -p $HOME/apps
 mkdir -p $HOME/temp
+mkdir -p $HOME/prj/aws
+
+cd $HOME/prj/aws
 
 #
 # Core
