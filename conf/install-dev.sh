@@ -15,7 +15,7 @@ cd $HOME/prj/aws
 #
 # Core
 #
-sudo apt-get -y install vim emacs gcc g++ cmake curl libcurl4-gnutls-dev libxml2-dev libssl-dev unzip m4 aspcud rsync darcs mercurial pkg-config octave mc pkg-config clang
+sudo apt-get -y install vim emacs gcc g++ cmake curl libcurl4-gnutls-dev libxml2-dev libssl-dev unzip m4 aspcud rsync darcs mercurial pkg-config octave mc pkg-config clang htop dstat tcpdump wireshark linux-tools-generic linux-cloud-tools-generic imagemagick libgdbm-dev libgdbm3 libsqlite3-dev x11-dev screen tmux
 
 #
 # Java tools
@@ -27,11 +27,21 @@ sudo apt-get -y install oracle-java8-installer ant
 # scala
 # TODO: post install script
 mkdir -p $HOME/apps/scala
-wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz $HOME/apps/scala/
 pushd $HOME/apps/scala/
+wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz 
 tar xzf scala-2.11.8.tgz
-# rm scala-2.11.8.tgz
+rm scala-2.11.8.tgz
 popd
+
+echo 'export PATH=$HOME/apps/scala/scala-2.11.8/bin:$PATH' >> ~/.bashrc 
+
+#
+# Maven adn sbt
+#
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+sudo apt-get update
+sudo apt-get -y install sbt maven
 
 # clojure
 #TODO
@@ -39,14 +49,14 @@ popd
 #
 # Julia
 #
-# TODO: install main packages
+# TODO: install main/useful packages
 #
 mkdir -p  $HOME/apps/Julia
 pushd $HOME/apps/Julia
 wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.5-linux-x86_64.tar.gz
 tar xzf julia-0.4.5-linux-x86_64.tar.gz
 rm -f julia
-ln -s julia-0.4.5 julia
+ln -s julia-2ac304dfba julia
 rm julia-0.4.5-linux-x86_64.tar.gz
 popd
 
@@ -83,13 +93,17 @@ sudo apt-get -y install elixir
 # rm erlang-solutions_1.0_all.deb
 popd
 
+sudo apt-get -y autoremove
+
 #
 # Ocaml
 #
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 opam conf -a env
 opam init
-opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring oscigenserver utf async flambda ulex cohttp menhir piqi parmap utop tyxml
+opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml
+
+sudo apt-get -y install tuareg-mode
 
 #
 # Rust
@@ -110,11 +124,14 @@ curl -sSf https://static.rust-lang.org/rustup.sh | sh
 # - Android NDK
 # - Ant
 # - cocos2x
+echo Installing Cocos2d and andorid tools
+
 pushd $HOME/temp
 wget -q https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz &
 wget -q http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip &
-wget -q http://cocos2d-x.org/filedown/cocos2d-x-3.11.zip &
+wget -q http://cdn.cocos2d-x.org/cocos2d-x-3.11.zip &
 
+echo Waiting for download completion
 wait
 
 mkdir -p $HOME/apps/Android/SDK $HOME/apps/Android/NDK $HOME/apps/cocos2dx
