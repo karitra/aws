@@ -162,6 +162,8 @@ popd
 # Update PATH variable
 # 
 echo 'export PATH=$JULIA_HOME:$HOME/bin:$PATH' >> $HOME/.bashrc
+echo 'export LESS="-X"' >> $HOME/.bashrc
+
 
 source $HOME/.bashrc
 
