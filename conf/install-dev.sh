@@ -8,7 +8,13 @@
 mkdir -p $HOME/bin
 mkdir -p $HOME/apps
 mkdir -p $HOME/temp
+mkdir -p $HOME/data/kaggle.com
 mkdir -p $HOME/prj/aws
+mkdir -p $HOME/prj/study
+
+pushd $HOME/bin
+wget -q https://dist.nuget.org/win-x86-commandline/v3.4.3/nuget.exe 
+popd
 
 cd $HOME/prj/aws
 
@@ -61,6 +67,7 @@ rm julia-0.4.5-linux-x86_64.tar.gz
 popd
 
 echo 'export JULIA_HOME=$HOME/apps/Julia/julia/bin' >> $HOME/.bashrc
+$HOME/apps/Julia/julia/bin/julia -e 'Pkg.update(); Pkg.add("DataFrames"); Pkg.add("DistributedArrays"); Pkg.add("Gadfly"); Pkg.add("Images"); Pkg.add("JLD"); Pkg.add("Winston"); Pkg.add("Vega")'
 
 #
 # Mono + Fsharp
@@ -101,7 +108,7 @@ sudo apt-get -y autoremove
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 opam conf -a env
 opam init
-opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml merlin
+opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml merlin camlpdf
 
 sudo apt-get -y install tuareg-mode
 
