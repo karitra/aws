@@ -14,7 +14,7 @@ mkdir -p $WORKING_PATH
 pushd $WORKING_PATH
 
 echo Downloading data...
-wget -c -q --load-cookies cookies.txt -nH https://www.kaggle.com/c/ultrasound-nerve-segmentation/download/train_masks.csv.zip &
+wget -c -q --load-cookies cookies.txt -nH https://www.kaggle.com/c/ultrasound-nerve-segmentation/download/train_masks.csv.zip
 wget -c -q --load-cookies cookies.txt -nH https://www.kaggle.com/c/ultrasound-nerve-segmentation/download/sample_submission.csv.zip
 wget -c -q --load-cookies cookies.txt -nH https://www.kaggle.com/c/ultrasound-nerve-segmentation/download/test.zip
 wget -c -q --load-cookies cookies.txt -nH https://www.kaggle.com/c/ultrasound-nerve-segmentation/download/train.zip
