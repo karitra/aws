@@ -1,14 +1,17 @@
 #/bin/bash
 #
-WORKING_PATH=$HOME/data/kaggle.com/UNS
+# Note: file cookies.txt should be present (not in repo)
+#
 
-mkdir -p $WORKING_PATH
-pushd $WORKING_PATH
+WORKING_PATH=$HOME/data/kaggle.com/UNS
 
 #
 # TODO: error report
 #
 cp cookies.txt $WORKING_PATH
+
+mkdir -p $WORKING_PATH
+pushd $WORKING_PATH
 
 echo Downloading data...
 wget -q -nH https://www.kaggle.com/c/ultrasound-nerve-segmentation/download/train_masks.csv.zip &
