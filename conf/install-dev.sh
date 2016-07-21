@@ -21,7 +21,8 @@ cd $HOME/prj/aws
 #
 # Core
 #
-sudo apt-get -y install vim emacs gcc g++ cmake curl libcurl4-gnutls-dev libxml2-dev libssl-dev unzip m4 aspcud rsync darcs mercurial pkg-config octave mc pkg-config clang htop dstat tcpdump wireshark linux-tools-generic linux-cloud-tools-generic imagemagick libgdbm-dev libgdbm3 libsqlite3-dev x11-dev screen tmux lynx
+sudo apt-get -y install vim emacs gcc g++ cmake curl libcurl4-gnutls-dev libxml2-dev libssl-dev unzip m4 aspcud rsync darcs mercurial pkg-config octave mc pkg-config clang htop dstat tcpdump wireshark linux-tools-generic linux-cloud-tools-generic imagemagick libgdbm-dev libgdbm3 libsqlite3-dev x11-dev screen tmux lynx 
+sudo apt-get -y install  libgtksourceview2.0-0 libgtksourceview2.0-common libgtksourceview2.0-dev
 
 #
 # Java tools
@@ -108,7 +109,7 @@ sudo apt-get -y autoremove
 wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
 opam conf -a env
 opam init
-opam install batteries lwt core ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml merlin camlpdf
+opam install batteries lwt core core_bench ocamlnet eliom camomile camlimages bitstring ocsigenserver async ulex cohttp menhir piqi parmap utop tyxml merlin camlpdf re2 lablgtk lablgtk-extras lacaml
 
 sudo apt-get -y install tuareg-mode
 
