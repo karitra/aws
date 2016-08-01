@@ -21,7 +21,7 @@ cd $HOME/prj/aws
 #
 # Core
 #
-sudo apt-get -y install vim emacs gcc g++ cmake curl libcurl4-gnutls-dev libxml2-dev libssl-dev unzip m4 aspcud rsync darcs mercurial pkg-config octave mc pkg-config clang htop dstat tcpdump wireshark linux-tools-generic linux-cloud-tools-generic imagemagick libgdbm-dev libgdbm3 libsqlite3-dev x11-dev screen tmux lynx 
+sudo apt-get -y install vim emacs gcc g++ cmake curl libcurl4-gnutls-dev libxml2-dev libssl-dev unzip m4 aspcud rsync darcs mercurial pkg-config octave mc pkg-config clang htop dstat tcpdump wireshark linux-tools-generic linux-cloud-tools-generic imagemagick libgdbm-dev libgdbm3 libsqlite3-dev x11-dev screen tmux lynx libatlas-dev libatlas-base-dev
 sudo apt-get -y install  libgtksourceview2.0-0 libgtksourceview2.0-common libgtksourceview2.0-dev
 
 #
